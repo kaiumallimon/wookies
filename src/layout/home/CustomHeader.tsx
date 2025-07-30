@@ -101,7 +101,7 @@ export default function CustomHeader() {
               size="lg"
               className="bg-white dark:bg-white text-black dark:text-black hover:opacity-60 transition duration-300"
             >
-              Let's Talk
+              Let&apos;s Talk
               <MailIcon className="h-4 w-4 ml-2" />
             </Button>
           </motion.div>
@@ -139,7 +139,7 @@ export default function CustomHeader() {
                 className="bg-white text-black w-full px-5 py-3 cursor-pointer rounded-[10px] text-sm hover:opacity-60 transition duration-300 mt-4 self-start flex items-center justify-center" 
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Let's Talk
+                Let&apos;s Talk
                 <ArrowRightIcon className="h-4 w-4 ml-2 inline-block" />
               </motion.button>
             </nav>

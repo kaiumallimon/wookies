@@ -1,12 +1,7 @@
-import Aurora from "@/components/backgrounds/Aurora";
-import DarkVeil from "@/components/backgrounds/DarkVeil";
-import { GridBackgroundDemo } from "@/components/backgrounds/Grid";
 import LightRays from "@/components/backgrounds/LightRays";
-import { ResizableHeader } from "@/layout/Header";
 import HomeAboutUs from "@/layout/home/AboutUs";
 import CustomHeader from "@/layout/home/CustomHeader";
 import Hero from "@/layout/home/Hero";
-import Image from "next/image";
 
 export default function Home() {
   return (

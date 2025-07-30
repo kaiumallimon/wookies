@@ -65,18 +65,18 @@ export default function HomeAboutUs() {
         cornerRadius: 8,
         displayColors: false,
         callbacks: {
-          label: function (context: any) {
+          label: function (context: { parsed: { y: number } }) {
             return `${context.parsed.y}%`;
           }
         }
       },
       customTopBorder: {
         id: 'customTopBorder',
-        afterDraw: (chart: any) => {
+        afterDraw: (chart: { ctx: CanvasRenderingContext2D; data: { datasets: Array<{ data: number[] }> }; getDatasetMeta: (index: number) => { data: Array<{ x: number; y: number; width: number; height: number }> } }) => {
           const ctx = chart.ctx;
           const meta = chart.getDatasetMeta(0);
 
-          meta.data.forEach((bar: any, index: number) => {
+          meta.data.forEach((bar: { x: number; y: number; width: number; height: number }, index: number) => {
             const barData = chart.data.datasets[0].data[index];
             const maxValue = Math.max(...chart.data.datasets[0].data);
             const barHeight = (barData / maxValue) * meta.data[0].height;

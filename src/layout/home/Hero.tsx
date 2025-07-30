@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowUpRight, ArrowDownRight } from "lucide-react";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import Image from "next/image";
 
 export default function Hero() {
   const ref = useRef(null);
@@ -86,7 +87,7 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.7 }}
           className="absolute top-4 left-4 z-20 flex flex-row items-center gap-3"
         >
-          <img
+          <Image
             src="https://assets.aceternity.com/logo-dark.png"
             alt="logo"
             width={30}
@@ -99,14 +100,19 @@ export default function Hero() {
         </motion.div>
 
         {/* Image */}
-        <motion.img
+        <motion.div
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          src="/hero-image-2.jpg"
-          alt="Hero Image"
-          className="w-full h-auto  object-cover rounded-lg shadow-lg"
-        />
+        >
+          <Image
+            src="/hero-image-2.jpg"
+            alt="Hero Image"
+            width={1200}
+            height={600}
+            className="w-full h-auto object-cover rounded-lg shadow-lg"
+          />
+        </motion.div>
       </motion.div>
     </motion.div>
   );
