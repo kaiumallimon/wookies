@@ -1,4 +1,5 @@
 "use client";
+import { MailIcon } from "lucide-react";
 import {
   Navbar,
   NavBody,
@@ -39,8 +40,14 @@ export function ResizableHeader() {
           <NavbarLogo />
           <NavItems items={navItems} />
           <div className="flex items-center gap-4">
-            <NavbarButton variant="secondary">Login</NavbarButton>
-            <NavbarButton variant="primary">Book a call</NavbarButton>
+            <NavbarButton
+                onClick={() => setIsMobileMenuOpen(false)}
+                variant="primary"
+                className="w-full flex items-center justify-center px-5"
+              >
+                Let's Talk
+                <MailIcon className="ml-2 inline h-4 w-4" />
+              </NavbarButton>
           </div>
         </NavBody>
 
@@ -57,7 +64,7 @@ export function ResizableHeader() {
           <MobileNavMenu
             isOpen={isMobileMenuOpen}
             onClose={() => setIsMobileMenuOpen(false)}
-            className="backdrop-blur-md bg-white/70 dark:bg-neutral-900/70"
+            className=" bg-white/100 dark:bg-neutral-900"
           >
             {navItems.map((item, idx) => (
               <a
@@ -70,20 +77,15 @@ export function ResizableHeader() {
               </a>
             ))}
             <div className="flex w-full flex-col gap-4">
-              <NavbarButton
+            <NavbarButton
                 onClick={() => setIsMobileMenuOpen(false)}
                 variant="primary"
-                className="w-full"
+                className="w-full flex items-center justify-center"
               >
-                Login
+                Let's Talk
+                <MailIcon className="ml-2 inline h-4 w-4" />
               </NavbarButton>
-              <NavbarButton
-                onClick={() => setIsMobileMenuOpen(false)}
-                variant="primary"
-                className="w-full"
-              >
-                Book a call
-              </NavbarButton>
+              
             </div>
           </MobileNavMenu>
         </MobileNav>

@@ -3,7 +3,7 @@ import { ArrowUpRight, ArrowDownRight } from "lucide-react";
 
 export default function Hero() {
   return (
-    <div className="flex flex-col items-center justify-center py-20 mx-5">
+    <div className="flex flex-col items-center justify-center pt-25 pb-10 md:pt-35 md:pb-15 mx-5">
       <div className="flex items-center gap-5 mb-6 md:mb-8 justify-center">
         <div className="bg-white/30 w-[50px] h-[2px]" />
         <h3 className="text-white/50 text-xl md:text-2xl">WOOKIES</h3>
@@ -17,12 +17,12 @@ export default function Hero() {
         for maximum success. Innovative digital agency crafting impactful ideas.
       </p>
       <div className="flex gap-3 justify-center mb-10 md:mb-12">
-        <Button size='lg'>
+        <Button size='lg' className="cursor-pointer">
           <p>Get in touch</p>
           <ArrowUpRight className="ml-2" />
         </Button>
 
-        <Button variant="outline" size='lg'>
+        <Button variant="outline" size='lg' className="cursor-pointer border-1 hover:border-white transition-colors duration-300">
           <p>Learn more</p>
           <ArrowDownRight className="ml-2" />
         </Button>
@@ -31,7 +31,7 @@ export default function Hero() {
       {/* Image section */}
       <div className="max-w-6xl mx-auto relative">
         {/* Dark overlay */}
-        <div className="absolute inset-0 bg-black opacity-40 rounded-lg z-10"></div>
+        <div className="absolute inset-0 bg-black opacity-50 rounded-lg z-10"></div>
 
         {/* Text in top-left corner */}
         <div className="absolute top-4 left-4 z-20 flex flex-row items-center gap-3">
@@ -49,9 +49,9 @@ export default function Hero() {
 
         {/* Image */}
         <img
-          src="/hero-image.jpg"
+          src="/hero-image-2.jpg"
           alt="Hero Image"
-          className="w-full h-auto md:h-[400px] object-cover rounded-lg shadow-lg"
+          className="w-full h-auto  object-cover rounded-lg shadow-lg"
         />
 
 

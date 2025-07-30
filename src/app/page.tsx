@@ -3,7 +3,8 @@ import DarkVeil from "@/components/backgrounds/DarkVeil";
 import { GridBackgroundDemo } from "@/components/backgrounds/Grid";
 import LightRays from "@/components/backgrounds/LightRays";
 import { ResizableHeader } from "@/layout/Header";
-import Hero from "@/layout/Hero";
+import HomeAboutUs from "@/layout/home/AboutUs";
+import Hero from "@/layout/home/Hero";
 import Image from "next/image";
 
 export default function Home() {
@@ -26,12 +27,14 @@ export default function Home() {
       </div>
 
       {/* Header */}
-      <div className="relative z-10">
+      <div className="relative z-100">
         <ResizableHeader />
       </div>
 
       {/* Hero */}
       <Hero />
+      <HomeAboutUs/>
+      
     </div>
   );
 }
