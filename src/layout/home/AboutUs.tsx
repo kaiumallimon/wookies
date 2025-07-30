@@ -123,13 +123,14 @@ export default function HomeAboutUs() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center pt-25 pb-10 md:pt-35 md:pb-15 mx-5">
-      <div className="max-w-6xl mx-auto relative w-full">
+    <div className="flex flex-col items-center justify-center bg-black">
+      <div className="w-full max-w-6xl px-4 sm:px-6 md:px-8 py-10 md:py-20">
         
-        
-        <div className="flex flex-col md:flex md:flex-row md:justify-between pt-8 gap-4">
+        {/* Top Content */}
+        <div className="flex flex-col md:flex-row md:justify-between gap-6 md:gap-12">
           <h1 className="text-3xl font-bold text-white">About Us</h1>
-          <div className="md:w-[50%] flex flex-col gap-3">
+          
+          <div className="md:w-1/2 flex flex-col gap-4">
             <p className="text-sm text-white">
               At WOOKIES, we specialize in innovative digital marketing strategies that dive results. Our team is dedicated to helping business grow and success online.
             </p>
@@ -138,15 +139,18 @@ export default function HomeAboutUs() {
             </p>
           </div>
         </div>
-
-        <div className="h-60 md:hidden lg:hidden">
-          <Bar data={chartData} options={options} className="" />
+  
+        {/* Chart for mobile */}
+        <div className="h-60 mt-10 md:hidden">
+          <Bar data={chartData} options={options} />
         </div>
-        
-        <div className="hidden md:block md:h-80">
-          <Bar data={chartData} options={options} className="" />
+  
+        {/* Chart for medium+ */}
+        <div className="hidden md:block md:h-80 mt-12">
+          <Bar data={chartData} options={options} />
         </div>
       </div>
     </div>
   );
+  
 }
