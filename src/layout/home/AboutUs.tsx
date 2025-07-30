@@ -128,7 +128,7 @@ export default function HomeAboutUs() {
         
         {/* Top Content */}
         <div className="flex flex-col md:flex-row md:justify-between gap-6 md:gap-12">
-          <h1 className="text-3xl font-bold text-white">About Us</h1>
+          <h1 className="text-4xl font-bold text-white">About Us</h1>
           
           <div className="md:w-1/2 flex flex-col gap-4">
             <p className="text-sm text-white">

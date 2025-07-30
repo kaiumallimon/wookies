@@ -13,6 +13,7 @@ import {
 } from
   "../components/navbars/resizable-navbar";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 export function ResizableHeader() {
   const navItems = [
@@ -33,7 +34,8 @@ export function ResizableHeader() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <div className="relative w-full z-10 py-2">
+    <div
+    className="relative w-full z-10 py-2">
       <Navbar>
         {/* Desktop Navigation */}
         <NavBody>
