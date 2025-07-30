@@ -40,7 +40,7 @@ export default function CustomHeader() {
       {/* Main Header */}
       <div
         className={`py-4 px-5 md:px-10 flex justify-center items-center ${
-          isScrolled ? "backdrop-blur-md" : ""
+          isScrolled ? "backdrop-blur-md bg-black/60" : ""
         }`}
       >
         <div className="container flex justify-between items-center">
@@ -136,10 +136,11 @@ export default function CustomHeader() {
 
               <motion.button
                 whileHover={{ scale: 1.05 }}
-                className="bg-black text-white px-4 py-3 rounded-3xl text-sm hover:opacity-60 transition duration-300 mt-4 self-start"
+                className="bg-white text-black w-full px-5 py-3 cursor-pointer rounded-[10px] text-sm hover:opacity-60 transition duration-300 mt-4 self-start flex items-center justify-center" 
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Get Started
+                Let's Talk
+                <ArrowRightIcon className="h-4 w-4 ml-2 inline-block" />
               </motion.button>
             </nav>
           </motion.div>

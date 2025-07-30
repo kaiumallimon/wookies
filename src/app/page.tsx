@@ -15,14 +15,14 @@ export default function Home() {
       <div className="absolute inset-0 -z-10">
         <LightRays
           raysOrigin="top-center"
-          raysColor="#00ffff"
+          raysColor="#ffffff"
           raysSpeed={1.5}
           lightSpread={0.8}
           rayLength={1.2}
           followMouse={true}
-          mouseInfluence={0.1}
+          mouseInfluence={0.5}
           noiseAmount={0.1}
-          distortion={0.05}
+          distortion={0.1}
           className="w-full h-full"
         />
       </div>

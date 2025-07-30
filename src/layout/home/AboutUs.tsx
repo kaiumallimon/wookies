@@ -10,6 +10,8 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 // Register Chart.js components
 ChartJS.register(
@@ -22,6 +24,9 @@ ChartJS.register(
 );
 
 export default function HomeAboutUs() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
+
   const chartData = {
     labels: ["Client Retention", "Budget Growth", "ROI", "Service Demand", "Agency Growth"],
     datasets: [
@@ -123,34 +128,62 @@ export default function HomeAboutUs() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center bg-black">
+    <motion.div 
+      ref={ref}
+      initial={{ y: 50, opacity: 0 }}
+      animate={isInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="flex flex-col items-center justify-center bg-black"
+    >
       <div className="w-full max-w-6xl px-4 sm:px-6 md:px-8 py-10 md:py-20">
         
         {/* Top Content */}
         <div className="flex flex-col md:flex-row md:justify-between gap-6 md:gap-12">
-          <h1 className="text-4xl font-bold text-white">About Us</h1>
+          <motion.h1 
+            initial={{ opacity: 0, x: -20 }}
+            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-4xl font-bold text-white"
+          >
+            About Us
+          </motion.h1>
           
-          <div className="md:w-1/2 flex flex-col gap-4">
+          <motion.div 
+            initial={{ opacity: 0, x: 20 }}
+            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="md:w-1/2 flex flex-col gap-4"
+          >
             <p className="text-sm text-white">
               At WOOKIES, we specialize in innovative digital marketing strategies that dive results. Our team is dedicated to helping business grow and success online.
             </p>
             <p className="text-sm text-white/60">
               With tailored solutions and a focus on measurable outcomes, we empower brands to connect with their audience and achieve their goals in the digital landscape.
             </p>
-          </div>
+          </motion.div>
         </div>
   
         {/* Chart for mobile */}
-        <div className="h-60 mt-10 md:hidden">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="h-60 mt-10 md:hidden"
+        >
           <Bar data={chartData} options={options} />
-        </div>
+        </motion.div>
   
         {/* Chart for medium+ */}
-        <div className="hidden md:block md:h-80 mt-12">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="hidden md:block md:h-80 mt-12"
+        >
           <Bar data={chartData} options={options} />
-        </div>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
   
 }

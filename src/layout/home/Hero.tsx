@@ -2,19 +2,24 @@
 
 import { Button } from "@/components/ui/button";
 import { ArrowUpRight, ArrowDownRight } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 export default function Hero() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
+
   return (
     <motion.div 
+      ref={ref}
       initial={{ y: 50, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
+      animate={isInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
       className="flex flex-col items-center justify-center pt-25 pb-10 md:pt-35 md:pb-15 mx-5"
     >
       <motion.div 
         initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
+        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
         transition={{ duration: 0.5, delay: 0.1 }}
         className="flex items-center gap-5 mb-6 md:mb-8 justify-center"
       >
@@ -25,7 +30,7 @@ export default function Hero() {
 
       <motion.h1 
         initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
+        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
         transition={{ duration: 0.5, delay: 0.2 }}
         className="text-5xl md:text-6xl flex text-center font-semibold mb-4 md:mb-6"
       >
@@ -34,7 +39,7 @@ export default function Hero() {
       
       <motion.p 
         initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
+        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
         transition={{ duration: 0.5, delay: 0.3 }}
         className="text-sm md:text-base text-white/60 text-center mb-6 md:mb-8"
       >
@@ -45,7 +50,7 @@ export default function Hero() {
       
       <motion.div 
         initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
+        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
         transition={{ duration: 0.5, delay: 0.4 }}
         className="flex gap-3 justify-center mb-10 md:mb-12"
       >
@@ -67,7 +72,7 @@ export default function Hero() {
       {/* Image section */}
       <motion.div 
         initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
+        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
         transition={{ duration: 0.6, delay: 0.5 }}
         className="max-w-6xl mx-auto relative"
       >
@@ -77,7 +82,7 @@ export default function Hero() {
         {/* Text in top-left corner */}
         <motion.div 
           initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
+          animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
           transition={{ duration: 0.5, delay: 0.7 }}
           className="absolute top-4 left-4 z-20 flex flex-row items-center gap-3"
         >
@@ -96,7 +101,7 @@ export default function Hero() {
         {/* Image */}
         <motion.img
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          animate={isInView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
           src="/hero-image-2.jpg"
           alt="Hero Image"
